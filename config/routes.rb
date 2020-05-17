@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root 'products#index'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+
   resources :users, only: [:new, :create]
   resources :products
-  root 'products#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get '/products', to: 'products#index'
