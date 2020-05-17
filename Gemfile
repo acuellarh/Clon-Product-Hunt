@@ -25,6 +25,8 @@ gem 'jquery-rails'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# gravatar
+gem 'gravatar-ultimate'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

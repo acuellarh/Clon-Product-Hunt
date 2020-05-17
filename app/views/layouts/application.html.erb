@@ -10,14 +10,40 @@
   </head>
 
   <body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">        
+          <%= link_to "Product Hunt", root_path, class: "navbar-brand" %>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </ul>
+        <% if signed_in? %>
+            <li class="dropdown">
+              <a href="#" class=" avatar">
+                <img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" />                     
+              </a>
+            </li>
+            <br>
+            <li><%= link_to "Crear_Producto_", new_product_path %></li>
+            <li><%= link_to "Salir", logout_path, method: :delete %></li>               
+          <% else %>
+            <li><%= link_to "Regístrate", new_user_path %></li>
+            <li><%= link_to "Login", login_path %></li>
+          <% end %>
+          </ul>
+      </form>
+    </div>
+   </nav>
+
     
     <% if flash[:notice] %>
       <div class="alert  alert-info"><%= flash[:notice] %></div>
     <%end%>
-
-    <% if signed_in? %>
-     <div>Hola <%= current_user.name %> <%= link_to "Salir", logout_path, method: :delete %> </div> 
-    <% end %>
 
     <%= yield %>
   </body>
